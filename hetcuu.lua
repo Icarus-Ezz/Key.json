@@ -46,9 +46,6 @@ if hwidResponse and hwidResponse.status == "true" then
         [7449423635] = function()
             getgenv().Language = "English"
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/VxezeHubMain2"))()
-        end,
-        [116495829188952] = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/main/Npclockdeadrails"))()
         end
     }
 
