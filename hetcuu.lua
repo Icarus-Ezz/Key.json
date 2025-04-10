@@ -23,19 +23,17 @@ local function getData(url)
     return nil
 end
 
--- 🟨 Bước 1: Kiểm tra key trước
 local verifyResponse = getData(keyVerifyUrl)
 if not verifyResponse or verifyResponse.status ~= "true" then
-    game.Players.LocalPlayer:Kick(verifyResponse and verifyResponse.msg or "⚠️ Invalid or expired key.")
+    game.Players.LocalPlayer:Kick(verifyResponse and verifyResponse.msg or "⚠️ Invalid Key")
     return
 end
 
--- 🟩 Bước 2: Kiểm tra HWID nếu key hợp lệ
+--Check Hwid
 local hwidResponse = getData(hwidCheckUrl)
 if hwidResponse and hwidResponse.status == "true" then
     print("✅ Success - HWID matched")
 
-    -- Chạy script theo game
     local gameScripts = {
         [2753915549] = function()
             getgenv().Language = "English"
@@ -58,7 +56,7 @@ if hwidResponse and hwidResponse.status == "true" then
     if scriptFunction then
         scriptFunction()
     else
-        game.Players.LocalPlayer:Kick("⚠️ This game is not supported.")
+        game.Players.LocalPlayer:Kick("⚠️ Not supported.")
     end
 else
     game.Players.LocalPlayer:Kick(hwidResponse and hwidResponse.message or "⚠️ Invalid HWID.")
