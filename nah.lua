@@ -9870,7 +9870,7 @@ local PlayersService = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local VirtualInput = game:GetService("VirtualInputManager")
 local Workspace = game:GetService("Workspace")
-local BoatSpeed = 350
+local BoatSpeed = 150
 
 local SpeedBoatSlider =
     Tabs.Volcanic:AddSlider(
@@ -9942,7 +9942,7 @@ AutoFindPrehistoricToggle:OnChanged(
         if state then
             Tween2(CFrame.new(-16927, 9, 433))
 
-            task.delay(
+            delay(
                 1,
                 function()
                     if
